@@ -55,6 +55,13 @@ int main(){
 
      //now the fun begins!
      for(uint64_t s = 1; s<=bound; s++){
+          //output updates every 0.1% complete
+          if(s%(bound/1000)==0){
+               auto clockOfUpdate = chrono::system_clock::now();
+	          time_t timeOfUpdate = chrono::system_clock::to_time_t(clockOfUpdate);
+	          cout << s/(bound/1000) << "\t" << ctime(&timeOfUpdate) << endl;
+          }
+
           auto current = h.find(s); //look for s in table
           if(current == h.end()){ //not found
                representations[0]++;
@@ -105,7 +112,7 @@ int main(){
 	cout << "Program terminated. " << endl;
 	cout << "computation time: " << comptime << "s" << endl;
 
-     for(int i = 0; i <= representations.size(); i++){
+     for(int i = 0; i < representations.size(); i++){
           cout << i << "\t" << representations[i] << endl;
      }
 

@@ -6,8 +6,8 @@
 
 using namespace std;
 
-const uint64_t bound = 1e9L;
-const uint64_t sieveSize = 1e6L;
+const uint64_t bound = 1e12L;
+const uint64_t sieveSize = 1e9L;
 
 vector<bool> isPrime(sieveSize+1, true);
 vector<uint64_t> soe;
